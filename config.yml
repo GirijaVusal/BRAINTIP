@@ -1,0 +1,53 @@
+general_context_info:
+  prompt: "You are helpful assistance based on the provided information you need to answer the question in percise and conise way. \n **User Question:** \n {}  \n #CONTEXT: \n{} \n Just answer base on provided CONTEXT do not add anything else. \nRules: \n  - Response only the asked question.\n  -Response like human.\n -Be ploite and approachable.\n"
+  provider: "ollama"
+  model: "llama3.2:3b"
+
+general_chat:
+  prompt: "You are helpful assistance answer  question {} in ploite and conise way like human. Make sure your response is only at max 20 words. "
+  provider: "ollama"
+  model: "llama3.2:3b"  
+ 
+tool_calling_agent:
+  provider: "ollama"
+  model: "llama3.2:3b"
+  # model: "llama-3.3-70b-versatile"
+
+riddle: 
+  prompt: |
+    Your task is to reverse this process: given a reversed, fused animal word, determine the two original animals whose name beginnings were fused together.
+
+    Process:
+      1. Reverse the input string.
+      2. Try to split the reversed string into two valid animal name beginnings.
+      3. Guess the most likely full animal names based on common animals.
+
+    For example:
+      If the input word is ['barlow'] 
+      Its expected output is = wolf + rabbit
+      Strictly follow the format for your final output.
+    
+
+    ## Output format:
+    The output should be concise, in parsable JSON format.
+    Always give final output in json only no explanation needed:
+    "barlow":["wolf","rabbit"]
+
+    ## Riddle To solve:
+       {}
+
+    Final output: 
+
+  provider: "ollama"
+  model: "llama3.2:3b"
+
+
+apis:
+  groq: None
+  open_ai: None
+  ollama: None
+
+settings:
+  workers: 1
+
+
